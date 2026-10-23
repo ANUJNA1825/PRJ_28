@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Predict — Microplastic Pollution Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="app-shell">
+    <div class="topbar">
+      <div class="mark"><span class="mark-dot"></span> POLLUTION DETECTOR</div>
+      <div class="user-area">
+        <span>{{ user.name }}</span>
+        <a href="{{ url_for('logout') }}">Log out</a>
+      </div>
+    </div>
+
+    <div class="predict-main">
+      <div class="eyebrow-block">
+        <h1>Run a prediction</h1>
+        <p>Upload a sample image. The model returns a pollution-level estimate — Low, Moderate, or High — with a confidence score for each class.</p>
+      </div>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for m in messages %}
+            <div class="flash" style="margin-top:20px;">{{ m }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <div class="predict-grid">
+        <div class="panel">
+          <h3>UPLOAD SAMPLE</h3>
+          <form id="predict-form">
+            <label class="dropzone" id="dropzone">
+              <input type="file" id="image-input" name="image" accept="image/*">
+              <div class="dz-label">Drag & drop an image, or click to browse</div>
+              <div class="dz-hint">JPG, PNG or BMP</div>
+            </label>
+            <img id="preview" class="preview-img" alt="Selected sample preview">
+            <div class="submit-row">
+              <button class="btn" type="submit" id="submit-btn">Predict pollution level</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h3>RESULT</h3>
+          <div id="result-empty" class="result-empty">
+            No prediction yet — upload an image to see the pollution level and confidence breakdown here.
+          </div>
+          <div id="result-content" style="display:none;">
+            <div id="result-badge" class="result-badge">
+              <span id="result-label"></span>
+            </div>
+            <div id="prob-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

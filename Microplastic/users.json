@@ -1,0 +1,18 @@
+{
+  "ash123@gamil.com": {
+    "name": "Ashwini Bangari",
+    "password_hash": "scrypt:32768:8:1$RIa4LbORfhVQkm9s$8ec33131607e583f9e6d861abd3700fe25d4c44d29998eea75669a63688ca4ef7e149e2b6bb80c65ae6d2b4b67b3c8e2d9d544d06c26f38c17729c3ccd15b938"
+  },
+  "anujnabhat27@gmail.com": {
+    "name": "Anujna Bhat",
+    "password_hash": "scrypt:32768:8:1$ypoOH4LriYabepJl$1c58bb539d501cce2b78925a999ddc6673bd0f2e88e83e602aa17dd1060758b19ce505f552b5a21001b54f3f869c852cfaf316581f8b0206b296d8d719b7bb02"
+  },
+  "uday@gmail.com": {
+    "name": "uday",
+    "password_hash": "scrypt:32768:8:1$EJQcTX7MEFrjbMyh$550d6bb33798027cc71590129fbe86dda5a5e0ce904ff136b035bb3993a08a784dbd8059331c92bea5dd03bfd4e3739d0c177dbae85d35b34a0a68a3614b7f73"
+  },
+  "anujnabhat2712@gmail.com": {
+    "name": "Anujna Bhat",
+    "password_hash": "scrypt:32768:8:1$56wPMYSsTnRVszsA$b6e264bbf95fa5049e9b0986ed82164e7839fe80c3dc83b4586e94a4e50926a4a6c25215d3f65c6ba2be2e058c98e298f59c85e2870cc17e3f3612964e942a1d"
+  }
+}

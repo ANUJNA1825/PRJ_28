@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in — Microplastic Pollution Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="auth-shell">
+    <div class="auth-brand">
+      <div class="particles"></div>
+      <div class="mark"><span class="mark-dot"></span> POLLUTION DETECTOR</div>
+      <div class="headline">
+        <h1>See what's<br>in the water.</h1>
+        <p>Upload a sample image and the model estimates its microplastic pollution level — Low, Moderate, or High — trained on annotated field samples.</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="num">2,490</div>
+          <div class="label">labeled samples</div>
+        </div>
+        <div class="stat">
+          <div class="num">3</div>
+          <div class="label">pollution classes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-form-side">
+      <div class="auth-form">
+        <h2>Welcome back</h2>
+        <p class="subtitle">Log in to run a new prediction.</p>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for m in messages %}
+              <div class="flash">{{ m }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('login') }}">
+          <div class="field">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="password">PASSWORD</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <button class="btn" type="submit">Log in</button>
+        </form>
+
+        <div class="switch-line">
+          Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

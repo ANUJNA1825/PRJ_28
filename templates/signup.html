@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign up — Microplastic Pollution Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="auth-shell">
+    <div class="auth-brand">
+      <div class="particles"></div>
+      <div class="mark"><span class="mark-dot"></span> POLLUTION DETECTOR</div>
+      <div class="headline">
+        <h1>Classify pollution<br>in seconds.</h1>
+        <p>Create an account to start uploading sample images and reading the model's predictions, with a confidence score for every class.</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="num">830</div>
+          <div class="label">low samples</div>
+        </div>
+        <div class="stat">
+          <div class="num">853</div>
+          <div class="label">moderate samples</div>
+        </div>
+        <div class="stat">
+          <div class="num">807</div>
+          <div class="label">high samples</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-form-side">
+      <div class="auth-form">
+        <h2>Create an account</h2>
+        <p class="subtitle">Takes less than a minute.</p>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for m in messages %}
+              <div class="flash">{{ m }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('signup') }}">
+          <div class="field">
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="password">PASSWORD</label>
+            <input type="password" id="password" name="password" required minlength="6">
+          </div>
+          <button class="btn" type="submit">Create account</button>
+        </form>
+
+        <div class="switch-line">
+          Already have an account? <a href="{{ url_for('login') }}">Log in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
